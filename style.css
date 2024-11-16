@@ -1,28 +1,36 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #bebbda;
+/* Flip card effect */
+.card.flipped {
+    background-color: #f39c12; /* Or any color to show the flipped card */
+    color: white;              /* Text color */
+    transform: rotateY(180deg); /* Rotate to show the card's content */
 }
 
-.game-container {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
-    margin: 20px;
+/* Matched cards */
+.card.matched {
+    background-color: #2ecc71; /* Change color for matched cards */
+    pointer-events: none;      /* Prevent interaction with matched cards */
 }
 
+/* Optional: Flip animation */
 .card {
-    width: 100px;
-    height: 100px;
-    background-color: #bebbda;
-    border: 1px solid #0a072c;
+    transition: transform 0.3s, background-color 0.3s;
+    transform-style: preserve-3d;
+}
+.card {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    border: 1px solid #000;
     font-size: 2em;
     cursor: pointer;
+    color: transparent;  /* Hide text initially */
+    font-size: 0;
+}
+
+/* Show content when the card is flipped */
+.card.flipped {
+    color: black;         /* Show text */
+    font-size: 2em;       /* Increase size when flipped */
 }
