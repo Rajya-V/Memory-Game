@@ -60,3 +60,4 @@ function flipCard(event) {
 document.querySelector('.game-container').addEventListener('click', flipCard);
 
 createBoard();
+

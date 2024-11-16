@@ -1,36 +1,64 @@
-/* Flip card effect */
-.card.flipped {
-    background-color: #f39c12; /* Or any color to show the flipped card */
-    color: white;              /* Text color */
-    transform: rotateY(180deg); /* Rotate to show the card's content */
-}
-
-/* Matched cards */
-.card.matched {
-    background-color: #2ecc71; /* Change color for matched cards */
-    pointer-events: none;      /* Prevent interaction with matched cards */
-}
-
-/* Optional: Flip animation */
-.card {
-    transition: transform 0.3s, background-color 0.3s;
-    transform-style: preserve-3d;
-}
-.card {
-    position: relative;
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    position: absolute;
+    top: 20px;
+}
+
+/* Game container should be a grid */
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* 4 columns */
+    gap: 10px;
+    margin: 80px auto 0; /* Add some top margin to avoid overlap with h1 */
+}
+
+/* Card styling */
+.card {
+    width: 100px;
+    height: 100px;
     background-color: #fff;
     border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 2em;
     cursor: pointer;
-    color: transparent;  /* Hide text initially */
+    position: relative;
+    color: transparent;  /* Hide the text initially */
     font-size: 0;
+    transition: transform 0.3s, background-color 0.3s;
+    transform-style: preserve-3d; /* Ensure 3D transforms for flip */
 }
 
 /* Show content when the card is flipped */
 .card.flipped {
     color: black;         /* Show text */
     font-size: 2em;       /* Increase size when flipped */
+    background-color: #f39c12; /* Or any color to show the flipped card */
 }
+
+/* Matched cards */
+.card.matched {
+    background-color: #2ecc71; /* Green color for matched cards */
+    pointer-events: none;      /* Prevent interaction with matched cards */
+}
+
+/* Optional: Flip animation */
+.card {
+    transform: rotateY(0deg);  /* Default rotation */
+}
+
+.card.flipped {
+    transform: rotateY(180deg); /* Flip effect */
+}
+
