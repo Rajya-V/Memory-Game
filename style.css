@@ -1,12 +1,15 @@
 /* Basic styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('images/parallax-background.jpg');
+    background-attachment: fixed; /* Keeps the background fixed */
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(146, 182, 170);
+    ba
 }
 
 h1 {
@@ -17,17 +20,21 @@ h1 {
 /* Game container should be a grid */
 .game-container {
     display: grid;
-    grid-template-columns: repeat(4, 100px); /* 4 columns */
+    grid-template-columns: repeat(4, 100px);
     gap: 10px;
-    margin: 80px auto 0; /* Add some top margin to avoid overlap with h1 */
+    align-items:center;
+    margin: 80px auto 0;
+    padding: 10px;
+    background-color: rgba(82, 111, 113, 0.8); /* Semi-transparent overlay */
+    border-radius: 10px;
 }
 
 /* Card styling */
 .card {
     width: 100px;
     height: 100px;
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: #ba99c9;
+    border: 1px solid #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,12 +51,12 @@ h1 {
 .card.flipped {
     color: black;         /* Show text */
     font-size: 2em;       /* Increase size when flipped */
-    background-color: #f39c12; /* Or any color to show the flipped card */
+    background-color: #67aca9; /* Or any color to show the flipped card */
 }
 
 /* Matched cards */
 .card.matched {
-    background-color: #2ecc71; /* Green color for matched cards */
+    background-color: #375764; /* Green color for matched cards */
     pointer-events: none;      /* Prevent interaction with matched cards */
 }
 
@@ -61,4 +68,68 @@ h1 {
 .card.flipped {
     transform: rotateY(180deg); /* Flip effect */
 }
+/* Keyframes for fade and grow effect */
+@keyframes matchEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);  /* Grow the matched card */
+        opacity: 0.8;            /* Slight fade effect */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;              /* Reset back to normal */
+    }
+}
+
+/* Apply animation to matched cards */
+.card.matched {
+    animation: matchEffect 0.5s ease-in-out;  /* Apply the match animation */
+    background-color: #6e4b78;  /* Green color for matched cards */
+    pointer-events: none;       /* Prevent interaction with matched cards */
+}
+/* Game container with fancy border using ::before and ::after */
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin: 80px auto 0;
+    padding: 10px;
+    position: relative;
+    background-color: #f8f8f8;
+}
+
+/* Decorative border for the game container */
+.game-container::before,
+.game-container::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px double #2c3e50;  /* Double border effect */
+    border-radius: 12px;
+    z-index: -1;  /* Place the border behind the container */
+}
+
+/* Card borders */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #3498db; /* Solid border around each card */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    transform-style: preserve-3d;
+}
+
 
