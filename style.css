@@ -1,19 +1,14 @@
 /* Basic styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Robot',cursive;
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url('images/parallax-background.jpg');
-    background-attachment: fixed; /* Keeps the background fixed */
-    background-position: center;
-    background-size: cover;
     background-color: rgb(146, 182, 170);
-    ba
 }
 
 h1 {
-    position: absolute;
+    position: center;
     top: 20px;
 }
 
@@ -21,7 +16,7 @@ h1 {
 .game-container {
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    gap: 50px;
     align-items:center;
     margin: 80px auto 0;
     padding: 10px;
